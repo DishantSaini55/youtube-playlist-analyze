@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create axios instance with base configuration
 const api = axios.create({
   baseURL: process.env.NODE_ENV === 'production' 
-    ? process.env.REACT_APP_API_URL || 'https://your-backend-app.vercel.app/api'
+    ? '/api'  // Use relative path for Vercel
     : '/api',
   timeout: 30000,
   headers: {
