@@ -1,0 +1,27 @@
+{
+  "name": "youtube-playlist-analyzer",
+  "version": "1.0.0",
+  "description": "A full-stack web application to analyze YouTube playlist durations",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "build": "cd frontend && npm run build",
+    "install-deps": "cd backend && npm install && cd ../frontend && npm install",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "keywords": ["youtube", "playlist", "analyzer", "react", "node"],
+  "author": "Your Name",
+  "license": "MIT"
+}
