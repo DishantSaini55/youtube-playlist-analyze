@@ -1,26 +1,36 @@
-# YouTube Playlist Analyzer
+# 🚀 YouTube Playlist Analyzer
 
-A full-stack web application to analyze YouTube playlist durations with speed variations.
+Modern YouTube Playlist Analyzer with dark theme design and speed calculation tools.
 
-## Features
+## ✨ Features
+- Clean, professional dark theme interface
+- YouTube playlist duration analysis  
+- Speed calculation tools (1x, 1.25x, 1.5x, 1.75x, 2x)
+- Mobile responsive design
+- Real-time playlist processing
 
-- 📋 Paste any YouTube playlist URL
-- ⏱️ Calculate total duration
-- 🚀 Show duration at multiple speeds (1x, 1.25x, 1.5x, 1.75x, 2x)
-- 📊 Display individual video details
-- 📱 Fully responsive design
+## 🛠️ Tech Stack
+- **Frontend**: React 18, Modern CSS, Axios
+- **Backend**: Node.js, Express, YouTube Data API v3
+- **Deployment**: Vercel (Frontend) + Render (Backend)
 
-## Tech Stack
+## 🚀 Deployment
 
-- **Frontend**: React.js, CSS3
-- **Backend**: Node.js, Express.js
-- **API**: YouTube Data API v3
+### Backend (Render.com)
+1. Deploy from `backend` folder
+2. Add environment variable: `YOUTUBE_API_KEY`
 
-## Getting Started
+### Frontend (Vercel.com)
+1. Deploy entire repository  
+2. Add environment variable: `REACT_APP_API_URL`
 
-1. Clone the repository
-2. Install dependencies for both frontend and backend
-3. Add your YouTube API key to backend/.env
-4. Run both servers
+## 📁 Project Structure
+```
+├── backend/           # Node.js API server
+├── frontend/          # React application
+├── vercel.json        # Frontend deployment config
+└── README.md          # Documentation
+```
 
-See setup instructions in the main documentation.
+## 🎯 Live Demo
+Modern, clean interface for analyzing YouTube playlists with professional design.
