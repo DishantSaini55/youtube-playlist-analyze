@@ -1,6 +1,7 @@
 [build]
   publish = "frontend/build"
   command = "cd frontend && npm install && npm run build"
+  functions = "netlify/functions"
 
 [build.environment]
   YOUTUBE_API_KEY = "AIzaSyABb8KAFgjIIfeyGI9LPn4rqWmTvrZJNeo"
