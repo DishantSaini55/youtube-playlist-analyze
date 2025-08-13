@@ -1,6 +1,9 @@
 [build]
   publish = "frontend/build"
-  command = "cd frontend && npm run build"
+  command = "cd frontend && npm install && npm run build"
+
+[build.environment]
+  YOUTUBE_API_KEY = "AIzaSyABb8KAFgjIIfeyGI9LPn4rqWmTvrZJNeo"
 
 [[redirects]]
   from = "/*"
