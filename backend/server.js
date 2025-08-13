@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: process.env.NODE_ENV === 'production' 
-      ? ["https://youtube-playlist-analyze.vercel.app", "https://*.vercel.app"]
+      ? true  // Allow all origins for now, we'll restrict later
       : "http://localhost:3000",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],

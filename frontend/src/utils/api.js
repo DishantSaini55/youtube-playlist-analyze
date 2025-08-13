@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create axios instance with base configuration
 const api = axios.create({
   baseURL: process.env.NODE_ENV === 'production' 
-    ? '/api'  // Use relative path for Vercel
+    ? process.env.REACT_APP_API_URL || 'https://youtube-playlist-backend.onrender.com/api'
     : '/api',
   timeout: 30000,
   headers: {
