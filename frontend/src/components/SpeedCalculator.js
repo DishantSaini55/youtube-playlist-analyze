@@ -5,7 +5,7 @@ const SpeedCalculator = ({ speeds }) => {
 
   return (
     <div className="speed-calculator">
-      <h3>⚡ Duration at Different Speeds</h3>
+      <h3>Duration at Different Speeds</h3>
       <div className="speed-grid">
         {speedOrder.map((speedKey) => {
           const speed = speeds[speedKey];

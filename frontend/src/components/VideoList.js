@@ -12,7 +12,7 @@ const VideoList = ({ videos }) => {
 
   return (
     <div className="video-list">
-      <h3>📹 Video List ({videos.length} videos)</h3>
+      <h3>Video List ({videos.length} videos)</h3>
 
       {displayVideos.map((video, index) => (
         <div key={video.id} className="video-item">

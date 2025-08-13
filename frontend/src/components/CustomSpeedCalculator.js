@@ -29,7 +29,7 @@ const CustomSpeedCalculator = ({ totalSeconds }) => {
 
   return (
     <div className="custom-speed-section">
-      <h3 className="custom-speed-title">🎛️ Custom Speed Calculator</h3>
+      <h3 className="custom-speed-title">Custom Speed Calculator</h3>
       <div className="custom-speed-controls">
         <input
           type="number"
@@ -53,7 +53,7 @@ const CustomSpeedCalculator = ({ totalSeconds }) => {
 
       {customResult && (
         <div className="custom-speed-result">
-          🚀 At {customResult.speed}× speed:{" "}
+          At {customResult.speed}× speed:{" "}
           <strong>{customResult.formatted}</strong>
         </div>
       )}

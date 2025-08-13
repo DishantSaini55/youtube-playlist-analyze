@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PlaylistForm from "./components/PlaylistForm";
 import PlaylistResults from "./components/PlaylistResults";
 import LoadingSpinner from "./components/LoadingSpinner";
+import api from "./utils/api";
 import "./App.css";
 
 function App() {
@@ -15,23 +16,10 @@ function App() {
     setPlaylistData(null);
 
     try {
-      const response = await fetch("/api/playlist/analyze", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to analyze playlist");
-      }
-
-      setPlaylistData(data);
+      const response = await api.post("/analyze", { url });
+      setPlaylistData(response.data);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.error || err.message || "Failed to analyze playlist");
     } finally {
       setLoading(false);
     }
@@ -44,23 +32,23 @@ function App() {
 
   return (
     <div className="App">
-      {/* Floating Background Elements */}
-      <div className="floating-elements">
-        <div className="floating-circle"></div>
-        <div className="floating-circle"></div>
-        <div className="floating-circle"></div>
+      {/* Background Elements */}
+      <div className="background-elements">
+        <div className="gradient-orb orb-1"></div>
+        <div className="gradient-orb orb-2"></div>
+        <div className="gradient-orb orb-3"></div>
       </div>
 
       <header className="app-header">
-        <div className="creator-badge">✨ Made by Dishant</div>
         <div className="container">
+          <div className="header-top">
+            <div className="creator-badge">Made by Dishant</div>
+          </div>
           <h1 className="app-title">
-            <span className="youtube-icon">📺</span>
             YouTube Playlist Analyzer
           </h1>
           <p className="app-subtitle">
-            Beautiful analytics for your favorite playlists with stunning
-            visualizations
+            Analyze your YouTube playlists with beautiful insights and speed calculations
           </p>
         </div>
       </header>
@@ -87,10 +75,9 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-text">
-              &copy; 2024 YouTube Playlist Analyzer
+              &copy; 2025 YouTube Playlist Analyzer
             </div>
-            <div className="dishant-credit">🚀 Crafted with ❤️ by Dishant</div>
-            <div className="footer-text">Built with React & Node.js</div>
+            <div className="dishant-credit">Crafted by Dishant © 2025</div>
           </div>
         </div>
       </footer>
