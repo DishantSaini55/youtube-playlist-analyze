@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 const playlistRoutes = require("./routes/playlist");
 
 const app = express();
@@ -22,18 +21,6 @@ app.use(express.json());
 // Routes
 app.use("/api/playlist", playlistRoutes);
 
-// Serve static files from React build in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
-  
-  app.get('*', (req, res) => {
-    if (req.path.startsWith('/api')) {
-      return res.status(404).json({ error: "API route not found" });
-    }
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-  });
-}
-
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({
@@ -48,9 +35,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-// 404 handler
-app.use("*", (req, res) => {
-  res.status(404).json({ error: "Route not found" });
+// 404 handler for API routes only
+app.use("/api/*", (req, res) => {
+  res.status(404).json({ error: "API route not found" });
 });
 
 app.listen(PORT, () => {
