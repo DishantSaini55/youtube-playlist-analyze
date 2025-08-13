@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: process.env.NODE_ENV === 'production' 
-      ? ["https://your-app-name.onrender.com", "https://your-app-name.vercel.app"]
+      ? ["https://youtube-playlist-analyze.vercel.app", "https://*.vercel.app"]
       : "http://localhost:3000",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
@@ -54,3 +54,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📱 Health check: http://localhost:${PORT}/api/health`);
 });
+
+// Export for Vercel serverless
+module.exports = app;

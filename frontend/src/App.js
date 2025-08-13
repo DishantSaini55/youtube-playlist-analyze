@@ -16,7 +16,7 @@ function App() {
     setPlaylistData(null);
 
     try {
-      const response = await api.post("/analyze", { url });
+      const response = await api.post("/playlist/analyze", { url });
       setPlaylistData(response.data);
     } catch (err) {
       setError(err.response?.data?.error || err.message || "Failed to analyze playlist");
