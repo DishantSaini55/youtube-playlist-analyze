@@ -26,6 +26,12 @@ app.get("/api/health", (req, res) => {
   res.json({
     status: "Server is running!",
     timestamp: new Date().toISOString(),
+    env: {
+      nodeEnv: process.env.NODE_ENV,
+      port: process.env.PORT,
+      hasApiKey: !!process.env.YOUTUBE_API_KEY,
+      apiKeyPrefix: process.env.YOUTUBE_API_KEY ? process.env.YOUTUBE_API_KEY.substring(0, 10) + '...' : 'Not found'
+    }
   });
 });
 
